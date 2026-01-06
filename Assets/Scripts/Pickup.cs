@@ -9,8 +9,6 @@ public class Pickup : MonoBehaviour
 
             // Destroy the pickup object
             Destroy(gameObject);
-
-            Debug.Log("Cheese collected!");
         }
     }
 }

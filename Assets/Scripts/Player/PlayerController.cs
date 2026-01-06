@@ -1,11 +1,12 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     bool alive = true;
 
-    float speed = 5f;
+    int speed = 5;
     public Rigidbody rb;
     Boolean grounded;
 
@@ -64,5 +65,11 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Pickup") && speed != 10)
+        {
+            speed += 5;
+        }
+    }
 }
