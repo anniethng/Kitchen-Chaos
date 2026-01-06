@@ -10,10 +10,12 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rb;
     Boolean grounded;
 
+    public GameObject escapeMenu;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        // escapeMenu.SetActive(false);
     }
 
     // Update is called once per frame
@@ -47,6 +49,14 @@ public class PlayerController : MonoBehaviour
                     rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
                     grounded = false;
                 }
+
+                /* if(Input.GetKeyDown(KeyCode.Escape) && escapeMenu.gameObject.activeSelf)
+                {
+                    escapeMenu.gameObject.SetActive(false);
+                } else if (Input.GetKeyDown(KeyCode.Escape) && !escapeMenu.gameObject.activeSelf)
+                {
+                    escapeMenu.gameObject.SetActive(true);
+                } */
             }
         }
     }
