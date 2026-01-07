@@ -1446,11 +1446,7 @@ MonoBehaviour:
   speed: 5
   rb: {fileID: 611119485}
   escapeMenu: {fileID: 683808733}
-  HUD: {fileID: 0}
-  playerController: {fileID: 0}
-  playerScore: {fileID: 0}
-  spawnPickup: {fileID: 0}
-  guiController: {fileID: 0}
+  HUD: {fileID: 846196440}
 --- !u!114 &611119487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3210,9 +3206,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GUIController
   nameInput: {fileID: 1741177430}
-  highScores:
-  - {fileID: 99639364}
-  - {fileID: 899011111}
+  highScoreTexts:
+  - {fileID: 0}
+  - {fileID: 0}
   username: 
 --- !u!1 &1643477572
 GameObject:
