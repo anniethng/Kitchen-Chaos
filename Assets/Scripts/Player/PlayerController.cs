@@ -11,20 +11,25 @@ public class PlayerController : MonoBehaviour
     Boolean grounded;
 
     public GameObject escapeMenu;
+    public GameObject HUD;
 
-    public PlayerController playerController;
-    public PlayerScore playerScore;
-    public SpawnPickup spawnPickup;
+    PlayerController playerController;
+    PlayerScore playerScore;
+    SpawnPickup spawnPickup;
+    GUIController guiController;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         escapeMenu.SetActive(true);
+        HUD.SetActive(false);
+        guiController.UpdateScores();
 
         playerController = FindFirstObjectByType<PlayerController>();
         playerScore = FindFirstObjectByType<PlayerScore>();
         spawnPickup = FindFirstObjectByType<SpawnPickup>();
+        guiController = FindFirstObjectByType<GUIController>();
     }
 
     // Update is called once per frame
@@ -64,10 +69,14 @@ public class PlayerController : MonoBehaviour
 
                 if(Input.GetKeyDown(KeyCode.Escape) && escapeMenu.gameObject.activeSelf)
                 {
+                    guiController.UpdateScores();
                     escapeMenu.gameObject.SetActive(false);
+                    HUD.SetActive(true);
                 } else if (Input.GetKeyDown(KeyCode.Escape) && !escapeMenu.gameObject.activeSelf)
                 {
+                    guiController.UpdateScores();
                     escapeMenu.gameObject.SetActive(true);
+                    HUD.SetActive(false);
                 }
             }
         }

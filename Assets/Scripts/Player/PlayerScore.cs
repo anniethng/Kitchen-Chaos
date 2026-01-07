@@ -10,10 +10,12 @@ public class PlayerScore : MonoBehaviour
     public int score = 0;
     public TextMeshProUGUI scoreText;
 
+    List<String> scores = new List<String>();
+    List<String> names = new List<String>();
+
     GUIController guiController;
     PlayerController playerController;
 
-    // String currentName = "";
     TextMeshProUGUI nameInput;
     Button newGameButton;
 
@@ -23,6 +25,46 @@ public class PlayerScore : MonoBehaviour
 
         guiController = FindFirstObjectByType<GUIController>();
         playerController = FindFirstObjectByType<PlayerController>();
+    }
+
+    public String[] getScoreName()
+    {
+        // Extract scores from scores.csv and save the name and score to a list
+        string filePath = "Assets/Scripts/Player/scores.csv";
+        string[] lines = File.ReadAllLines(filePath);
+        
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split(',');
+            if (parts.Length == 2)
+            {
+                names.Add(parts[0]);
+            }
+
+            return names.ToArray(); 
+        }
+
+        return new String[0];
+    }
+
+    public String[] getScoreNumber()
+    {
+        // Extract scores from scores.csv and save the name and score to a list
+        string filePath = "Assets/Scripts/Player/scores.csv";
+        string[] lines = File.ReadAllLines(filePath);
+        
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split(',');
+            if (parts.Length == 2)
+            {
+                scores.Add(parts[1]);
+            }
+
+            return scores.ToArray(); 
+        }
+
+        return new String[0];
     }
 
     void OnTriggerEnter(Collider other)
@@ -42,8 +84,10 @@ public class PlayerScore : MonoBehaviour
             File.WriteAllText(filePath, text + Environment.NewLine + guiController.username + "," + score.ToString());
             Debug.Log("Score saved to " + filePath);
 
+            guiController.UpdateScores();
             playerController.Reset();
             playerController.escapeMenu.SetActive(true);
+            playerController.HUD.SetActive(false);
         }
     }
 }
