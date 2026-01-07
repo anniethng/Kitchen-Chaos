@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     Boolean grounded;
 
     public GameObject escapeMenu;
+    public GameObject gameOverMenu;
     public GameObject HUD;
 
     PlayerController playerController;
@@ -18,20 +19,18 @@ public class PlayerController : MonoBehaviour
     SpawnPickup spawnPickup;
     GUIController guiController;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        escapeMenu.SetActive(true);
-        HUD.SetActive(false);
-        guiController.UpdateScores();
-
         playerController = FindFirstObjectByType<PlayerController>();
         playerScore = FindFirstObjectByType<PlayerScore>();
         spawnPickup = FindFirstObjectByType<SpawnPickup>();
         guiController = FindFirstObjectByType<GUIController>();
+        
+        escapeMenu.SetActive(true);
+        gameOverMenu.SetActive(false);
+        HUD.SetActive(false);
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -69,14 +68,14 @@ public class PlayerController : MonoBehaviour
 
                 if(Input.GetKeyDown(KeyCode.Escape) && escapeMenu.gameObject.activeSelf)
                 {
-                    guiController.UpdateScores();
                     escapeMenu.gameObject.SetActive(false);
                     HUD.SetActive(true);
+                    guiController.UpdateScores();
                 } else if (Input.GetKeyDown(KeyCode.Escape) && !escapeMenu.gameObject.activeSelf)
                 {
-                    guiController.UpdateScores();
                     escapeMenu.gameObject.SetActive(true);
                     HUD.SetActive(false);
+                    guiController.UpdateScores();
                 }
             }
         }
@@ -103,6 +102,9 @@ public class PlayerController : MonoBehaviour
         {
             alive = false;
             GetComponent<MeshRenderer>().enabled = false;
+            escapeMenu.SetActive(false);
+            gameOverMenu.SetActive(true);
+            HUD.SetActive(false);
         }
     }
 

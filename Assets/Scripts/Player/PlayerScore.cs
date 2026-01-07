@@ -4,6 +4,7 @@ using System.IO;
 using System.Collections.Generic;
 using System;
 using UnityEngine.UI;
+using System.Linq;
 
 public class PlayerScore : MonoBehaviour
 {
@@ -27,31 +28,34 @@ public class PlayerScore : MonoBehaviour
         playerController = FindFirstObjectByType<PlayerController>();
     }
 
-    public String[] getScoreName()
+    public List<String> getScoreName()
     {
         // Extract scores from scores.csv and save the name and score to a list
         string filePath = "Assets/Scripts/Player/scores.csv";
-        string[] lines = File.ReadAllLines(filePath);
+        String[] lines = File.ReadAllLines(filePath);
         
+        names.Clear();
+
         foreach (string line in lines)
         {
             string[] parts = line.Split(',');
+            
             if (parts.Length == 2)
             {
                 names.Add(parts[0]);
             }
-
-            return names.ToArray(); 
         }
 
-        return new String[0];
+        return names.ToList<String>();
     }
 
-    public String[] getScoreNumber()
+    public List<String> getScoreNumber()
     {
         // Extract scores from scores.csv and save the name and score to a list
         string filePath = "Assets/Scripts/Player/scores.csv";
         string[] lines = File.ReadAllLines(filePath);
+
+        scores.Clear();
         
         foreach (string line in lines)
         {
@@ -60,11 +64,9 @@ public class PlayerScore : MonoBehaviour
             {
                 scores.Add(parts[1]);
             }
-
-            return scores.ToArray(); 
         }
 
-        return new String[0];
+        return scores.ToList<String>();
     }
 
     void OnTriggerEnter(Collider other)
