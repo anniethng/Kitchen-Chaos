@@ -29,7 +29,7 @@ public class PlayerScore : MonoBehaviour
 
     public List<String> getScoreName()
     {
-        // Extract scores from scores.csv and save the name and score to a list
+        // Extract scores from scores.csv and save the name to a list
         string filePath = "Assets/Scripts/Player/scores.csv";
         String[] lines = File.ReadAllLines(filePath);
         
@@ -50,7 +50,7 @@ public class PlayerScore : MonoBehaviour
 
     public List<String> getScoreNumber()
     {
-        // Extract scores from scores.csv and save the name and score to a list
+        // Extract scores from scores.csv and save the score to a list
         string filePath = "Assets/Scripts/Player/scores.csv";
         string[] lines = File.ReadAllLines(filePath);
 
