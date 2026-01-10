@@ -6,57 +6,62 @@ public class PlayerController : MonoBehaviour
 {
     bool alive = true;
 
-    int speed = 5;
+    // Movement
+    public int speed = 5;
     public Rigidbody rb;
     Boolean grounded;
 
+    // GUI Elements
     public GameObject escapeMenu;
+    public GameObject gameOverMenu;
+    public GameObject HUD;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // External classes
+    GUIController guiController;
+
     void Start()
     {
-        // escapeMenu.SetActive(false);
+        guiController = FindFirstObjectByType<GUIController>();
+        
+        escapeMenu.SetActive(true);
+        gameOverMenu.SetActive(false);
+        HUD.SetActive(false);
     }
-
+    
     // Update is called once per frame
     void Update()
     {
         {
             if (alive)
             {
-                if(Input.GetKey(KeyCode.W))
+                if (!escapeMenu.gameObject.activeSelf)
                 {
-                    transform.Translate(Vector3.forward * Time.deltaTime * speed);
-                }
-                
-                if(Input.GetKey(KeyCode.S))
-                {
-                    transform.Translate(Vector3.back * Time.deltaTime * speed);
-                }
-                
-                if(Input.GetKey(KeyCode.A))
-                {
-                    transform.Translate(Vector3.left * Time.deltaTime * speed);
-                }
-                
-                if(Input.GetKey(KeyCode.D))
-                {
-                    transform.Translate(Vector3.right * Time.deltaTime * speed);
-                }
+                    if(Input.GetKey(KeyCode.W))
+                    {
+                        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+                    }
+                    
+                    if(Input.GetKey(KeyCode.S))
+                    {
+                        transform.Translate(Vector3.back * Time.deltaTime * speed);
+                    }
+                    
+                    if(Input.GetKey(KeyCode.A))
+                    {
+                        transform.Translate(Vector3.left * Time.deltaTime * speed);
+                    }
+                    
+                    if(Input.GetKey(KeyCode.D))
+                    {
+                        transform.Translate(Vector3.right * Time.deltaTime * speed);
+                    }
 
-                if(Input.GetKeyDown(KeyCode.Space) && grounded)
-                {
-                    rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
-                    grounded = false;
+                    if(Input.GetKeyDown(KeyCode.Space) && grounded)
+                    {
+                        rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
+                        grounded = false;
+                    }
                 }
-
-                /* if(Input.GetKeyDown(KeyCode.Escape) && escapeMenu.gameObject.activeSelf)
-                {
-                    escapeMenu.gameObject.SetActive(false);
-                } else if (Input.GetKeyDown(KeyCode.Escape) && !escapeMenu.gameObject.activeSelf)
-                {
-                    escapeMenu.gameObject.SetActive(true);
-                } */
             }
         }
     }
@@ -72,6 +77,7 @@ public class PlayerController : MonoBehaviour
         {
             alive = false;
             GetComponent<MeshRenderer>().enabled = false;
+            guiController.Death();
         }
     }
 
