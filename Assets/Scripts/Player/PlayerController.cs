@@ -6,10 +6,10 @@ public class PlayerController : MonoBehaviour
 {
     bool alive = true;
 
-    // Movement
-    public int speed = 5;
+    // Movement (Achtung: Force braucht höhere Werte!)
+    public float speed = 10f; 
     public Rigidbody rb;
-    Boolean grounded;
+    bool grounded;
 
     // GUI Elements
     public GameObject escapeMenu;
@@ -21,54 +21,55 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        // Sicherheitshalber den Rigidbody holen, falls vergessen
+        if (rb == null) rb = GetComponent<Rigidbody>();
+
+        // GUI Controller suchen (mit Fallback, damit kein Fehler kommt)
         guiController = FindFirstObjectByType<GUIController>();
         
-        escapeMenu.SetActive(true);
-        gameOverMenu.SetActive(false);
-        HUD.SetActive(false);
+        if(escapeMenu) escapeMenu.SetActive(true);
+        if(gameOverMenu) gameOverMenu.SetActive(false);
+        if(HUD) HUD.SetActive(false);
     }
     
-    // Update is called once per frame
+    // Physik gehört IMMER in FixedUpdate
+    void FixedUpdate()
+    {
+        if (alive)
+        {
+            // Nur bewegen, wenn das Menü aus ist
+            if (escapeMenu != null && !escapeMenu.activeSelf)
+            {
+                // Wir nutzen Input.GetAxis (das deckt W,A,S,D und Pfeiltasten ab)
+                float moveHorizontal = Input.GetAxis("Horizontal");
+                float moveVertical = Input.GetAxis("Vertical");
+
+                Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+
+                // Hier ist der Zaubertrick: KRAFT statt Beamen -> Kugel rollt!
+                rb.AddForce(movement * speed);
+            }
+        }
+    }
+
+    // Springen (Input) gehört in Update
     void Update()
     {
+        if (alive && escapeMenu != null && !escapeMenu.activeSelf)
         {
-            if (alive)
+            if (Input.GetKeyDown(KeyCode.Space) && grounded)
             {
-                if (!escapeMenu.gameObject.activeSelf)
-                {
-                    if(Input.GetKey(KeyCode.W))
-                    {
-                        transform.Translate(Vector3.forward * Time.deltaTime * speed);
-                    }
-                    
-                    if(Input.GetKey(KeyCode.S))
-                    {
-                        transform.Translate(Vector3.back * Time.deltaTime * speed);
-                    }
-                    
-                    if(Input.GetKey(KeyCode.A))
-                    {
-                        transform.Translate(Vector3.left * Time.deltaTime * speed);
-                    }
-                    
-                    if(Input.GetKey(KeyCode.D))
-                    {
-                        transform.Translate(Vector3.right * Time.deltaTime * speed);
-                    }
-
-                    if(Input.GetKeyDown(KeyCode.Space) && grounded)
-                    {
-                        rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
-                        grounded = false;
-                    }
-                }
+                rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
+                grounded = false;
             }
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Ground"))
+        // WICHTIG: Wir haben vorhin den Tag "Floor" für Sounds vergeben.
+        // Deshalb checken wir hier auf "Floor" ODER "Ground", damit beides geht.
+        if(collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Floor"))
         {
             grounded = true;
         }
@@ -77,14 +78,16 @@ public class PlayerController : MonoBehaviour
         {
             alive = false;
             GetComponent<MeshRenderer>().enabled = false;
-            guiController.Death();
+            if(guiController) guiController.Death();
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Pickup") && speed != 10)
+        // Pickup Logic
+        if(other.gameObject.CompareTag("Pickup"))
         {
+            // Geschwindigkeit erhöhen (angepasst für Force)
             speed += 5;
         }
     }

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{8D37602D-9712-4F1F-AF17-2463F2CB408F}" SchemaVersion="133">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{8D37602D-9712-4F1F-AF17-2463F2CB408F}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_Music" ID="{FE2A099C-407E-46E4-8E44-210FD3CEE7FE}">
+					<ChildrenList>
+						<Action Name="" ID="{782E34AF-6C35-492E-8BC8-335836644D90}" ShortID="840195110">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="JazzMusic" ID="{5BB87074-F28C-4718-A37A-196967E9E514}" WorkUnitID="{DF68C814-F70B-4EC8-B1E5-735A87FC7DF4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Timer" ID="{E54EEC5F-17E2-47B8-8461-1402C5DD147B}">
+					<ChildrenList>
+						<Action Name="" ID="{56BE0D55-9BE7-46E0-9F40-C33832C4011C}" ShortID="733939421">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Timer_Stress (Blend)" ID="{BEA21184-1C2C-41C1-B84E-864BE59EF719}" WorkUnitID="{DF68C814-F70B-4EC8-B1E5-735A87FC7DF4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Timer" ID="{9041E6DB-CB01-46D3-A7AA-4CC88BC15069}">
+					<ChildrenList>
+						<Action Name="" ID="{A8531DF7-7D11-4E36-A2E2-3E11DDBECB21}" ShortID="655739508">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Timer_Stress (Blend)" ID="{BEA21184-1C2C-41C1-B84E-864BE59EF719}" WorkUnitID="{DF68C814-F70B-4EC8-B1E5-735A87FC7DF4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Click" ID="{B01D83E7-84D2-49C6-90C7-EC67B54DEC8B}">
+					<ChildrenList>
+						<Action Name="" ID="{92F67AE7-6CC5-4BEB-8B89-8F36414A9CF3}" ShortID="747981235">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="653369__triqystudio__sharpclick" ID="{F514806D-BA27-4AAB-9139-93A1F1E65FD0}" WorkUnitID="{DF68C814-F70B-4EC8-B1E5-735A87FC7DF4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Set_State_Menu" ID="{97D8B7E9-7912-4C5B-85B4-F9E17AE3F2E2}">
+					<ChildrenList>
+						<Action Name="" ID="{A1642BC0-91EF-4971-BF10-95D421D76445}" ShortID="399599856">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Menu" ID="{37B69E28-D62F-4899-B763-6950D2D582D1}" WorkUnitID="{A4473987-51C0-4B9F-98BC-62F87246A13F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Set_State_Ingame" ID="{B2B28BD2-84B1-4474-ABDE-9113A1765481}">
+					<ChildrenList>
+						<Action Name="" ID="{3418D9A1-48EB-4670-BAC9-ECF236D215CE}" ShortID="868536724">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Ingame" ID="{7675CEF3-B8D6-4692-A6FB-291BFBD2829E}" WorkUnitID="{A4473987-51C0-4B9F-98BC-62F87246A13F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Collision" ID="{57879078-DC92-46A4-8900-D94353765690}">
+					<ChildrenList>
+						<Action Name="" ID="{B57CDE3E-7AAB-4AF7-8F80-06C17C364EBF}" ShortID="36653491">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Player_Collision (Switch)" ID="{24C750A1-2907-47EA-BCED-91F666F97D3A}" WorkUnitID="{DF68C814-F70B-4EC8-B1E5-735A87FC7DF4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Impact" ID="{A859BF21-0989-4B3A-9744-E0EC3B969BD1}">
+					<ChildrenList>
+						<Action Name="" ID="{CBC21014-C9C1-4F1E-A670-EF9253A7CA01}" ShortID="112101659">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Player_Impact (Random)" ID="{CE2277EB-AE3C-473D-9113-F316A48DA2C8}" WorkUnitID="{DF68C814-F70B-4EC8-B1E5-735A87FC7DF4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

@@ -1,8 +1,11 @@
 using UnityEngine;
+using UnityEngine.SceneManagement; // Das brauchen wir für den Reset
 
-public class GameController : MonoBehaviour
+// HIER steht das wichtige MonoBehaviour:
+public class GameController : MonoBehaviour 
 {
-    // External classes
+    public static bool isRestarting = false;
+    // Variablen für die anderen Skripte
     PlayerController playerController;
     PlayerScore playerScore;
     SpawnPickup spawnPickup;
@@ -10,6 +13,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        // Hier suchen wir die anderen Skripte in der Szene
         playerController = FindFirstObjectByType<PlayerController>();
         playerScore = FindFirstObjectByType<PlayerScore>();
         spawnPickup = FindFirstObjectByType<SpawnPickup>();
@@ -18,16 +22,7 @@ public class GameController : MonoBehaviour
 
     public void Reset()
     {
-        playerScore.score = 0;
-        playerScore.scoreText.text = "Score: " + "0";
-        playerController.transform.position = new Vector3(0, 1, 33);
-        playerController.speed = 5;
-
-        GUIController.username = "";
-
-        GUIController.HUD.SetActive(false);
-        GUIController.escapeMenu.SetActive(true);
-
-        spawnPickup.SpawnNewPickups();
+        // Der einfachste Weg für einen Reset: Lade die Szene neu
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
