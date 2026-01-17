@@ -67,9 +67,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        // WICHTIG: Wir haben vorhin den Tag "Floor" für Sounds vergeben.
-        // Deshalb checken wir hier auf "Floor" ODER "Ground", damit beides geht.
-        if(collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Floor"))
+       
+        if(collision.gameObject.CompareTag("Ground"))
+
         {
             grounded = true;
         }
