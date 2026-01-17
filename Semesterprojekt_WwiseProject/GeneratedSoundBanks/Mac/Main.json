@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{1A4942E3-28B5-4A76-9ED2-1AC74288DFFE}",
     "Language": "SFX",
-    "Hash": "{E2AB2DF3-8772-34B9-10B2-4F6B4A70C97D}",
+    "Hash": "{1DCC1A7F-1150-57AE-C280-8C5FCAE91948}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -22,6 +22,14 @@
       "Location": "Memory",
       "ShortName": "634990__jigglesticks__droping-plate-on-water.wav",
       "CachePath": "01/{01BFA67D-FA99-5ED5-B20A-275DB2684944}.wem"
+     },
+     {
+      "Id": "60415915",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "653369__triqystudio__sharpclick.wav",
+      "CachePath": "89/{89013BC8-439A-5A92-75D5-03E619FD915F}.wem"
      },
      {
       "Id": "115453615",
@@ -62,14 +70,6 @@
       "Location": "Memory",
       "ShortName": "546089__45t__wet-splat-squish-01.wav",
       "CachePath": "83/{83C1BD8A-03D3-94E0-79E1-07A2BE960ACE}.wem"
-     },
-     {
-      "Id": "937081922",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "249772__klankbeeld__egg-shell-empty-drop-03-140219_0092.wav",
-      "CachePath": "7C/{7C120D6E-B71D-3537-C49C-E9111829E297}.wem"
      }
     ],
     "Events": [
@@ -79,11 +79,11 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Play_Click",
       "GUID": "{B01D83E7-84D2-49C6-90C7-EC67B54DEC8B}",
       "DurationType": "OneShot",
-      "DurationMin": "0.051502038",
-      "DurationMax": "0.051502038",
+      "DurationMin": "0.1792563",
+      "DurationMax": "0.1792563",
       "MediaRefs": [
        {
-        "Id": "937081922"
+        "Id": "60415915"
        }
       ]
      },
@@ -254,6 +254,6 @@
     ]
    }
   ],
-  "FileHash": "{18D0A5C8-6DAE-0AA8-2BB9-845396B4D4D5}"
+  "FileHash": "{FB152735-194E-1B1F-F275-6CAC225C8603}"
  }
 }

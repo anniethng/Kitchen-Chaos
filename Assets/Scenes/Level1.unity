@@ -754,6 +754,7 @@ GameObject:
   - component: {fileID: 204742094}
   - component: {fileID: 204742093}
   - component: {fileID: 204742092}
+  - component: {fileID: 204742095}
   m_Layer: 5
   m_Name: Button_NewGame
   m_TagString: Untagged
@@ -827,7 +828,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1573301706}
         m_TargetAssemblyTypeName: GUIController, Assembly-CSharp
-        m_MethodName: SaveName
+        m_MethodName: NewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -837,9 +838,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1573301706}
-        m_TargetAssemblyTypeName: GUIController, Assembly-CSharp
-        m_MethodName: NewGame
+      - m_Target: {fileID: 204742095}
+        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
+        m_MethodName: PlayClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 204742095}
+        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
+        m_MethodName: PlayClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -887,6 +900,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 204742090}
   m_CullTransparentMesh: 1
+--- !u!114 &204742095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204742090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5453f626ab70c49558f608cd3c6517b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonSound
 --- !u!1 &388939999
 GameObject:
   m_ObjectHideFlags: 0
@@ -2416,6 +2441,7 @@ GameObject:
   - component: {fileID: 1067579139}
   - component: {fileID: 1067579138}
   - component: {fileID: 1067579137}
+  - component: {fileID: 1067579140}
   m_Layer: 5
   m_Name: Button_Quit
   m_TagString: Untagged
@@ -2487,9 +2513,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1573301706}
-        m_TargetAssemblyTypeName: GUIController, Assembly-CSharp
-        m_MethodName: SaveName
+      - m_Target: {fileID: 1067579140}
+        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
+        m_MethodName: PlayClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1067579140}
+        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
+        m_MethodName: PlayClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2537,6 +2575,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067579135}
   m_CullTransparentMesh: 1
+--- !u!114 &1067579140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067579135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5453f626ab70c49558f608cd3c6517b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonSound
 --- !u!1 &1088926047
 GameObject:
   m_ObjectHideFlags: 0
