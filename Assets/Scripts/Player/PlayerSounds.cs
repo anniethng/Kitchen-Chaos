@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerSounds : MonoBehaviour
 {
-    private void OnlisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     
     {
         Debug.Log("Berührung erkannt mit: " + collision.gameObject.name);

@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{1A4942E3-28B5-4A76-9ED2-1AC74288DFFE}",
     "Language": "SFX",
-    "Hash": "{2FBF5060-D22B-012F-A2BA-59F28745EF89}",
+    "Hash": "{E2AB2DF3-8772-34B9-10B2-4F6B4A70C97D}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -69,7 +69,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "249772__klankbeeld__egg-shell-empty-drop-03-140219_0092.wav",
-      "CachePath": "03/{03E09AD9-D0A8-CD06-425C-6788F302C118}.wem"
+      "CachePath": "7C/{7C120D6E-B71D-3537-C49C-E9111829E297}.wem"
      }
     ],
     "Events": [
@@ -79,8 +79,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Play_Click",
       "GUID": "{B01D83E7-84D2-49C6-90C7-EC67B54DEC8B}",
       "DurationType": "OneShot",
-      "DurationMin": "1.2783542",
-      "DurationMax": "1.2783542",
+      "DurationMin": "0.051502038",
+      "DurationMax": "0.051502038",
       "MediaRefs": [
        {
         "Id": "937081922"
@@ -254,6 +254,6 @@
     ]
    }
   ],
-  "FileHash": "{B8E47B0E-1DC4-4AC0-8643-57DE51CBB600}"
+  "FileHash": "{18D0A5C8-6DAE-0AA8-2BB9-845396B4D4D5}"
  }
 }

@@ -33,5 +33,5 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	365926218	timer_fast	.cache\67\{67F9DC12-01FA-D106-266C-67A592FB16A2}.wem		\Containers\Default Work Unit\Timer_Stress (Blend)\timer_fast		25730218
 	775982166	JazzMusic	.cache\E0\{E051AA34-70E5-677A-EEC5-F088F8E8E1F5}.wem		\Containers\Default Work Unit\JazzMusic		3984660
 	920201420	546089__45t__wet-splat-squish-01	.cache\83\{83C1BD8A-03D3-94E0-79E1-07A2BE960ACE}.wem		\Containers\Default Work Unit\Player_Impact (Random)\546089__45t__wet-splat-squish-01		80038
-	937081922	653369__triqystudio__sharpclick	.cache\03\{03E09AD9-D0A8-CD06-425C-6788F302C118}.wem		\Containers\Default Work Unit\653369__triqystudio__sharpclick		245540
+	937081922	653369__triqystudio__sharpclick	.cache\7C\{7C120D6E-B71D-3537-C49C-E9111829E297}.wem		\Containers\Default Work Unit\653369__triqystudio__sharpclick		9984
 
