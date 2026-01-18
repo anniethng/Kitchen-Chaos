@@ -74,6 +74,12 @@
         "Name": "Menu",
         "ObjectPath": "\\States\\Default Work Unit\\GameState\\Menu",
         "GUID": "{37B69E28-D62F-4899-B763-6950D2D582D1}"
+       },
+       {
+        "Id": "4158285989",
+        "Name": "GameOver",
+        "ObjectPath": "\\States\\Default Work Unit\\GameState\\GameOver",
+        "GUID": "{15FF0F1B-1937-44E8-95D4-48F4D01CF1EC}"
        }
       ]
      }
@@ -102,6 +108,6 @@
     ]
    }
   ],
-  "FileHash": "{A1617BB2-1EA5-359A-E382-1714675B4B2A}"
+  "FileHash": "{06198E45-225B-9998-E84A-4A86A6D9BAAF}"
  }
 }

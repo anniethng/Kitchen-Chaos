@@ -32,6 +32,7 @@ namespace AK
 
             namespace STATE
             {
+                static const AkUniqueID GAMEOVER = 4158285989U;
                 static const AkUniqueID INGAME = 984691642U;
                 static const AkUniqueID MENU = 2607556080U;
                 static const AkUniqueID NONE = 748895195U;

@@ -19,6 +19,14 @@ public class PlayerController : MonoBehaviour
     public string switchGroup = "CollisionType";
     public string impactEvent = "Play_Impact";
 
+    [Tooltip("Name des Game Parameters in Wwise")]
+    public string speedRTPC = "StressLevel";
+
+    [Tooltip("Name der State Group in Wwise")]
+    public string musicStateGroup = "GameState";
+    [Tooltip("Name des Game Over States in Wwise")]
+    public string gameOverState = "GameOver";
+
     GUIController guiController;
 
     // --- DELEGATES & EVENTS ABONNIEREN ---
@@ -56,6 +64,12 @@ public class PlayerController : MonoBehaviour
 
         // Fall-Check (Absturz)
         if (alive && transform.position.y < fallLimit) Die();
+
+        if(alive) {
+            // Wwise RTPC für Geschwindigkeit setzen
+            float currentSpeed = rb.linearVelocity.magnitude;
+            AkUnitySoundEngine.SetRTPCValue(speedRTPC, currentSpeed, gameObject);
+        }
     }
 
     void PerformJump() {
@@ -81,6 +95,10 @@ public class PlayerController : MonoBehaviour
     public void Die() {
         if (!alive) return;
         alive = false;
+
+    AkUnitySoundEngine.SetState(musicStateGroup, gameOverState);
+
         if (guiController) guiController.Death();
+
     }
 }
