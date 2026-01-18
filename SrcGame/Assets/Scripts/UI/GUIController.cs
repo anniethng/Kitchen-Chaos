@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq; // Notwendig für die korrekte Sortierung
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GUIController : MonoBehaviour
 {
@@ -15,59 +16,85 @@ public class GUIController : MonoBehaviour
     public GameObject HUD;
     public GameObject gameOverMenu;
 
-    public static string savedUsername = ""; 
-    public string username;
+    public String username;
+    bool updated = false;
 
+    // External classes
+    PlayerController playerController;
     PlayerScore playerScore;
     GameController gameController;
 
-    void Start()
+    List<String> names = new List<String>();
+    List<String> scores = new List<String>();
+    
+    public void Start()
     {
+        playerController = FindFirstObjectByType<PlayerController>();
         playerScore = FindFirstObjectByType<PlayerScore>();
-        gameController = FindFirstObjectByType<GameController>();
 
-        if (!string.IsNullOrEmpty(savedUsername)) username = savedUsername;
-
-        if (!string.IsNullOrEmpty(username)) {
-            escapeMenu.SetActive(false);
-            HUD.SetActive(true);
-            if(nameInput != null) nameInput.text = username;
-        } else {
-            escapeMenu.SetActive(true);
-            HUD.SetActive(false);
-        }
         UpdateScores();
     }
 
     public void Update()
     {
-        if (!string.IsNullOrEmpty(username)) {
-            if(Input.GetKeyDown(KeyCode.Escape)) {
-                bool isVisible = !escapeMenu.activeSelf;
-                escapeMenu.SetActive(isVisible);
-                HUD.SetActive(!isVisible);
+        if (username != "" && username != null)
+        {
+            if(Input.GetKeyDown(KeyCode.Escape) && escapeMenu.gameObject.activeSelf)
+            {
+                escapeMenu.gameObject.SetActive(false);
+                HUD.SetActive(true);
+
                 UpdateScores();
+
+                if (!updated)
+                {
+                    WriteScores();
+                    updated = true;
+                }
+            } else if (Input.GetKeyDown(KeyCode.Escape) && !escapeMenu.gameObject.activeSelf)
+            {
+                escapeMenu.gameObject.SetActive(true);
+                HUD.SetActive(false);
+
+                UpdateScores();
+
+                if (!updated)
+                {
+                    WriteScores();
+                    updated = true;
+                }
             }
         }
     }
 
-    public void SaveName() {
-        if (!string.IsNullOrEmpty(nameInput.text)) {
-            username = nameInput.text;
-            savedUsername = username;
-            NewGame();
+    public void SaveName()
+    {
+        username = nameInput.text;
+        nameInput.text = "";
+
+        updated = true;
+
+        Debug.Log("Name saved: " + username);
+    }
+
+    public void NewGame()
+    {
+        if (username != "" && username != null)
+        {
+            escapeMenu.SetActive(false);
+            HUD.SetActive(true);
         }
     }
 
-    public void NewGame() {
-        escapeMenu.SetActive(false);
-        HUD.SetActive(true);
-        if(gameController != null) gameController.Reset();
+    public void TryAgain()
+    {
+        gameOverMenu.SetActive(false);
+        escapeMenu.SetActive(true);
+        gameController.Reset();
     }
 
-    public void Death() {
-        WriteScores(); 
-        UpdateScores();
+    public void Death()
+    {
         escapeMenu.SetActive(false);
         gameOverMenu.SetActive(true);
         HUD.SetActive(false);
@@ -75,60 +102,54 @@ public class GUIController : MonoBehaviour
 
     public void UpdateScores()
     {
-        List<ScoreEntry> allEntries = new List<ScoreEntry>();
-        string path = Application.persistentDataPath + "/scores.csv";
+        names.Clear();
+        scores.Clear();
 
-        // 1. Lesen & Parsen (String.Split Anforderung)
-        if (File.Exists(path)) {
-            string[] lines = File.ReadAllLines(path);
-            foreach (string line in lines) {
-                string[] parts = line.Split(',');
-                if (parts.Length == 2) {
-                    // WICHTIG: String in INT umwandeln für numerische Sortierung!
-                    if (int.TryParse(parts[1].Trim(), out int s)) {
-                        allEntries.Add(new ScoreEntry { name = parts[0], score = s });
-                    }
+        names = playerScore.getScoreName();
+        scores = playerScore.getScoreNumber();
+
+        Debug.Log(names.ToString());
+
+        //Sort scores and names based on scores descending
+        for (int i = 0; i < scores.Count - 1; i++)
+        {
+            for (int j = i + 1; j < scores.Count; j++)
+            {
+                if (Int32.Parse(scores[i]) < Int32.Parse(scores[j]))
+                {
+                    //Swap scores
+                    String tempScore = scores[i];
+                    scores[i] = scores[j];
+                    scores[j] = tempScore;
+
+                    //Swap names
+                    String tempName = names[i];
+                    names[i] = names[j];
+                    names[j] = tempName;
                 }
             }
         }
 
-        // 2. Auffüllen auf 5 Einträge (Pflichtpunkt)
-        int filler = 100;
-        while (allEntries.Count < 5) {
-            allEntries.Add(new ScoreEntry { name = "Bot", score = filler });
-            filler -= 20;
+        String t = "";
+
+        for (int i = 0; i < names.Count; i++)
+        {
+            t += (i + 1) + ". " + names[i] + ": " + scores[i] + "\n";
         }
 
-        // 3. Numerische Sortierung (Absteigend: 100 kommt vor 2)
-        allEntries = allEntries.OrderByDescending(x => x.score).ToList();
-
-        // 4. Formatierung für UI (String.Format Anforderung)
-        string displayString = "";
-        for (int i = 0; i < 5; i++) {
-            displayString += string.Format("{0}. {1}: {2}\n", i + 1, allEntries[i].name, allEntries[i].score);
-        }
-
-        if(highScoreTextEscape) highScoreTextEscape.text = "Highscores\n\n" + displayString;
-        if(highScoreTextGameOver) highScoreTextGameOver.text = "Highscores\n\n" + displayString;
+        highScoreTextEscape.text = "Highscores \n \n" + t;
+        highScoreTextGameOver.text = "Highscores \n \n" + t;
     }
 
     public void WriteScores()
     {
-        string path = Application.persistentDataPath + "/scores.csv";
-        int finalScore = (playerScore != null) ? playerScore.score : 0;
-        // String.Format für CSV-Eintrag
-        string line = string.Format("{0},{1}{2}", username, finalScore, Environment.NewLine);
-        File.AppendAllText(path, line);
-    }
+        // Save the score to scores.csv
+        string filePath = "Assets/Scripts/Player/scores.csv";
+        string text = File.ReadAllText(filePath);
 
-    public void TryAgain() {
-        gameOverMenu.SetActive(false);
-        if(gameController != null) gameController.Reset();
-    }
-}
+        File.WriteAllText(filePath, text + Environment.NewLine + username + "," + playerScore.score.ToString());
 
-// Die Hilfsklasse für die Liste
-public class ScoreEntry {
-    public string name;
-    public int score;
+        escapeMenu.SetActive(true);
+        HUD.SetActive(false);
+    }
 }
