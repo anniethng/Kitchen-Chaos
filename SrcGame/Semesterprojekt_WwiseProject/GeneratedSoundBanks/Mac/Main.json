@@ -1,0 +1,262 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "172",
+  "SoundBanks": [
+   {
+    "Id": "3161908922",
+    "Type": "User",
+    "GUID": "{1A4942E3-28B5-4A76-9ED2-1AC74288DFFE}",
+    "Language": "SFX",
+    "Hash": "{37DDCBE5-D450-BE87-E3CE-023E9CB068E3}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
+    "ShortName": "Main",
+    "Path": "Main.bnk",
+    "Media": [
+     {
+      "Id": "36053337",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "634990__jigglesticks__droping-plate-on-water.wav",
+      "CachePath": "01/{01BFA67D-FA99-5ED5-B20A-275DB2684944}.wem"
+     },
+     {
+      "Id": "60415915",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "653369__triqystudio__sharpclick.wav",
+      "CachePath": "CD/{CD497674-7401-A3BF-8734-B4BED8B421B5}.wem"
+     },
+     {
+      "Id": "115453615",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "538143__asherkaye2__quick-splash-dropping-grapes-into-a-glass-of-water.wav",
+      "CachePath": "84/{847BBCFB-804A-2632-4931-746E667C6CCD}.wem"
+     },
+     {
+      "Id": "355026375",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "660823__trashcan_studios__007-squish-12.wav",
+      "CachePath": "46/{46F2EEEE-3FA3-B576-0A2E-7228D902AFEB}.wem"
+     },
+     {
+      "Id": "365926218",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "795491__sadiquecat__useless-egg-timer.wav",
+      "CachePath": "67/{67F9DC12-01FA-D106-266C-67A592FB16A2}.wem"
+     },
+     {
+      "Id": "775982166",
+      "Language": "SFX",
+      "Streaming": "true",
+      "Location": "Memory",
+      "ShortName": "797739__sergequadrado__luxury-jazz-loop.wav",
+      "Path": "Media/775982166.wem",
+      "CachePath": "E0/{E051AA34-70E5-677A-EEC5-F088F8E8E1F5}.wem",
+      "PrefetchSize": "17736",
+      "ContainsPrefetch": "true"
+     },
+     {
+      "Id": "920201420",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "546089__45t__wet-splat-squish-01.wav",
+      "CachePath": "83/{83C1BD8A-03D3-94E0-79E1-07A2BE960ACE}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "311910498",
+      "Name": "Play_Click",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Click",
+      "GUID": "{B01D83E7-84D2-49C6-90C7-EC67B54DEC8B}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.1792563",
+      "DurationMax": "0.1792563",
+      "MediaRefs": [
+       {
+        "Id": "60415915"
+       }
+      ]
+     },
+     {
+      "Id": "1553219250",
+      "Name": "Play_Collision",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Collision",
+      "GUID": "{57879078-DC92-46A4-8900-D94353765690}",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     },
+     {
+      "Id": "2764105556",
+      "Name": "Play_Impact",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Impact",
+      "GUID": "{A859BF21-0989-4B3A-9744-E0EC3B969BD1}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.2920634",
+      "DurationMax": "0.90639025",
+      "MediaRefs": [
+       {
+        "Id": "36053337"
+       },
+       {
+        "Id": "115453615"
+       },
+       {
+        "Id": "355026375"
+       },
+       {
+        "Id": "920201420"
+       }
+      ]
+     },
+     {
+      "Id": "2932040671",
+      "Name": "Play_Music",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Music",
+      "GUID": "{FE2A099C-407E-46E4-8E44-210FD3CEE7FE}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "775982166"
+       }
+      ]
+     },
+     {
+      "Id": "4169444829",
+      "Name": "Play_Timer",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Timer",
+      "GUID": "{E54EEC5F-17E2-47B8-8461-1402C5DD147B}",
+      "DurationType": "OneShot",
+      "DurationMin": "379.04047",
+      "DurationMax": "379.04047",
+      "MediaRefs": [
+       {
+        "Id": "365926218"
+       }
+      ]
+     },
+     {
+      "Id": "3300611779",
+      "Name": "Set_State_Ingame",
+      "ObjectPath": "\\Events\\Default Work Unit\\Set_State_Ingame",
+      "GUID": "{B2B28BD2-84B1-4474-ABDE-9113A1765481}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "4091656514",
+        "Id": "984691642",
+        "Name": "Ingame",
+        "ObjectPath": "\\States\\Default Work Unit\\GameState\\Ingame",
+        "GUID": "{7675CEF3-B8D6-4692-A6FB-291BFBD2829E}"
+       }
+      ]
+     },
+     {
+      "Id": "2302270969",
+      "Name": "Set_State_Menu",
+      "ObjectPath": "\\Events\\Default Work Unit\\Set_State_Menu",
+      "GUID": "{97D8B7E9-7912-4C5B-85B4-F9E17AE3F2E2}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "4091656514",
+        "Id": "2607556080",
+        "Name": "Menu",
+        "ObjectPath": "\\States\\Default Work Unit\\GameState\\Menu",
+        "GUID": "{37B69E28-D62F-4899-B763-6950D2D582D1}"
+       }
+      ]
+     },
+     {
+      "Id": "3090597779",
+      "Name": "Stop_Timer",
+      "ObjectPath": "\\Events\\Default Work Unit\\Stop_Timer",
+      "GUID": "{9041E6DB-CB01-46D3-A7AA-4CC88BC15069}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "2715298845",
+      "Name": "StressLevel",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\StressLevel",
+      "GUID": "{5C30B584-90B5-45C3-BE9F-5FFB6C8265A3}"
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "4091656514",
+      "Name": "GameState",
+      "ObjectPath": "\\States\\Default Work Unit\\GameState",
+      "GUID": "{35C914C1-A6BE-4616-B5A9-FE559677693D}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\GameState\\None",
+        "GUID": "{409A6857-E7EB-4C1B-B74B-4E7E96DAD2AE}"
+       },
+       {
+        "Id": "984691642",
+        "Name": "Ingame",
+        "ObjectPath": "\\States\\Default Work Unit\\GameState\\Ingame",
+        "GUID": "{7675CEF3-B8D6-4692-A6FB-291BFBD2829E}"
+       },
+       {
+        "Id": "2607556080",
+        "Name": "Menu",
+        "ObjectPath": "\\States\\Default Work Unit\\GameState\\Menu",
+        "GUID": "{37B69E28-D62F-4899-B763-6950D2D582D1}"
+       }
+      ]
+     }
+    ],
+    "SwitchGroups": [
+     {
+      "Id": "280300163",
+      "Name": "CollisionType",
+      "ObjectPath": "\\Switches\\Default Work Unit\\CollisionType",
+      "GUID": "{C1FC3C3A-4443-49A7-A66B-22DFB151A775}",
+      "Switches": [
+       {
+        "Id": "670602561",
+        "Name": "Soft",
+        "ObjectPath": "\\Switches\\Default Work Unit\\CollisionType\\Soft",
+        "GUID": "{D25FA64B-E423-4741-A3EA-E48E1282A0F1}"
+       },
+       {
+        "Id": "3599861390",
+        "Name": "Hard",
+        "ObjectPath": "\\Switches\\Default Work Unit\\CollisionType\\Hard",
+        "GUID": "{BA80EC84-E409-4419-A97B-D63018BBD93B}"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{C217EA7C-7487-6F19-1D94-724C30F7542E}"
+ }
+}

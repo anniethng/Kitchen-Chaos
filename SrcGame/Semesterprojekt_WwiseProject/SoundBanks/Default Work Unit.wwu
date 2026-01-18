@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{2F9F1033-6B8E-4067-ACD1-7996B8EAC810}" SchemaVersion="133">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{2F9F1033-6B8E-4067-ACD1-7996B8EAC810}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="Main" ID="{1A4942E3-28B5-4A76-9ED2-1AC74288DFFE}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Set_State_Ingame" ID="{B2B28BD2-84B1-4474-ABDE-9113A1765481}" WorkUnitID="{8D37602D-9712-4F1F-AF17-2463F2CB408F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Collision" ID="{57879078-DC92-46A4-8900-D94353765690}" WorkUnitID="{8D37602D-9712-4F1F-AF17-2463F2CB408F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Stop_Timer" ID="{9041E6DB-CB01-46D3-A7AA-4CC88BC15069}" WorkUnitID="{8D37602D-9712-4F1F-AF17-2463F2CB408F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Music" ID="{FE2A099C-407E-46E4-8E44-210FD3CEE7FE}" WorkUnitID="{8D37602D-9712-4F1F-AF17-2463F2CB408F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Timer" ID="{E54EEC5F-17E2-47B8-8461-1402C5DD147B}" WorkUnitID="{8D37602D-9712-4F1F-AF17-2463F2CB408F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Click" ID="{B01D83E7-84D2-49C6-90C7-EC67B54DEC8B}" WorkUnitID="{8D37602D-9712-4F1F-AF17-2463F2CB408F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Impact" ID="{A859BF21-0989-4B3A-9744-E0EC3B969BD1}" WorkUnitID="{8D37602D-9712-4F1F-AF17-2463F2CB408F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Set_State_Menu" ID="{97D8B7E9-7912-4C5B-85B4-F9E17AE3F2E2}" WorkUnitID="{8D37602D-9712-4F1F-AF17-2463F2CB408F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Pickup" ID="{8CDFE27D-F297-4EE3-ACD0-89847D0F3D9A}" WorkUnitID="{8D37602D-9712-4F1F-AF17-2463F2CB408F}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>
